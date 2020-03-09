@@ -1,5 +1,4 @@
 'use strict'
-const Database = use('Database')
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +15,11 @@ const Database = use('Database')
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const Database = use('Database')
+
 
 Route.on('/').render('welcome')
 
 Route.get('/todos', async () => {
   return await Database.table('todo').select('*')
-})
+});
