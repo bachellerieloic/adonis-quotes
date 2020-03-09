@@ -1,4 +1,5 @@
 'use strict'
+const Database = use('Database')
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.get('/todos', async () => {
+  return await Database.table('todo').select('*')
+})
